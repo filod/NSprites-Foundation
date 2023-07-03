@@ -39,6 +39,7 @@ namespace NSprites.Authoring
         public void Bake<TAuthoring>(Baker<TAuthoring> baker, TAuthoring authoring, in float2 nativeSize, in float4 uvAtlas)
             where TAuthoring : Component
         {
+            baker.DependsOn(authoring.transform);
             var authoringTransform = authoring.transform;
             var authoringScale = authoringTransform.lossyScale;
             
